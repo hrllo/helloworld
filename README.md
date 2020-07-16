@@ -17,10 +17,12 @@ Website Navigation
 
 <br>Compilation order</br>
 --------------------
-<br>building sql.java</br>
+#<br>building sql.java</br>
+
 <br>Create a table for the database and fill in the data</br>
 
-<br>put index.jsp in Tomcat/webapps/ROOT</br>
+#<br>put index.jsp in Tomcat/webapps/ROOT</br>
+
 <br>Access Tomcat's port to run the program</br>
 
 
