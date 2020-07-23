@@ -35,7 +35,7 @@ public static void CreatTable_Login(String a) throws Exception{
 
     Connection c=getConn();
     Statement stmt = c.createStatement();	
-    String sql ="CREATE TABLE " + a +" (NAME  TEXT   NOT NULL, " +  " PASSWORD   CHAR(100)) " ;
+    String sql ="CREATE TABLE " + a +" (NAME  TEXT   NOT NULL, " +  " PASSWORD   CHAR(100),"+"IP CHAR(100)) " ;
    
     stmt.executeUpdate(sql);
     System.out.println("Table_Login created successfully");        
