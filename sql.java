@@ -19,18 +19,29 @@ public  static Connection getConn() throws Exception{
 	return c;
 }
 
-public static void CreatTable(String a) throws Exception{
+public static void CreatTable_Link(String a) throws Exception{
 
     Connection c=getConn();
     Statement stmt = c.createStatement();	
     String sql ="CREATE TABLE " + a +" (ID  INT   NOT NULL,"+"NAME  TEXT   NOT NULL, " +  " LINK   CHAR(100),"+" NUMBER   INT   NOT NULL ) " ;
    
     stmt.executeUpdate(sql);
-    System.out.println("Table created successfully");        
+    System.out.println("Table_Link created successfully");        
     stmt.close();
     c.close();
 }
 
+public static void CreatTable_Login(String a) throws Exception{
+
+    Connection c=getConn();
+    Statement stmt = c.createStatement();	
+    String sql ="CREATE TABLE " + a +" (NAME  TEXT   NOT NULL, " +  " PASSWORD   CHAR(100)) " ;
+   
+    stmt.executeUpdate(sql);
+    System.out.println("Table_Login created successfully");        
+    stmt.close();
+    c.close();
+}
 
 public static void InsertTable(int dd,String aa,String bb,String cc) throws Exception{
 	Connection c = getConn();
@@ -66,13 +77,13 @@ public static void DeleteTable(String aa,String bb) throws Exception{
 	public static void main(String[] args) throws Exception {
 
 		try {
-
-String a="tv";CreatTable(a);
-String b="mail";CreatTable(b);
-String c="shop";CreatTable(c);
-String d="bank";CreatTable(d);
-String e="music";CreatTable(e);
-String f="news";CreatTable(f);
+String aa="login";CreatTable_Login(aa);
+String a="tv";CreatTable_Link(a);
+String b="mail";CreatTable_Link(b);
+String c="shop";CreatTable_Link(c);
+String d="bank";CreatTable_Link(d);
+String e="music";CreatTable_Link(e);
+String f="news";CreatTable_Link(f);
 
 String a1="tv";String ab1="爱奇艺";String ac1="https://www.iqiyi.com/";int ad1=1 ;InsertTable(ad1,a1,ab1,ac1);
 String a2="tv";String ab2="腾讯视频";String ac2="https://v.qq.com/";int ad2=2;InsertTable(ad2,a2,ab2,ac2);
