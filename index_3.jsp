@@ -330,6 +330,18 @@ for(String tableName : tables) {
 		    	  out.println(" <script language=\"javascript\">");
 		    	  out.println("alert(\"登录成功。\");");
 		    	  out.println("</script>");
+		    	  String realIP=request.getHeader("x-forwarded-for");
+		    	  String ip = request.getRemoteAddr();
+		    	  if(realIP==null||realIP.length()==0)
+		    	  {
+		    		  Statement st5 = dbcon.createStatement();
+		    		  st5.execute("update login set IP= '"+ ip +"'where NAME= '"+user1+"';");
+		    	  }
+		    	  else
+		    	  {
+		    		  Statement st6 = dbcon.createStatement();
+		    		  st6.execute("update login set IP= '"+ realIP +"'where NAME= '"+user1+"';");
+		    	  }
 		    	  }
 	}}}}
 	
@@ -340,6 +352,7 @@ for(String tableName : tables) {
 		st_.execute("insert into login (NAME,PASSWORD) values ('" + user2 +"','" + psw2 + "');");
 		}
 %>
+
 </div>
 </div>
 <div class="page_layout"id="copy">
